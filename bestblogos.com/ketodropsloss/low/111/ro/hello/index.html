@@ -7,10 +7,47 @@
   <link rel="stylesheet" href="index_files/style.css">
   <link rel="shortcut icon" href="index_files/indivia_system_pak1_5.png" type="image/x-icon">
 
-  <script
-  src="https://code.jquery.com/jquery-1.8.3.min.js"
-  integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
-  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <style>
+    
+    form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 100%;
+    }
+    
+    .title-form {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    .order-button[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .order-button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
 
 </head>
 
@@ -193,6 +230,19 @@
                             Lana Del Ray a cerut să atașăm link-ul către site-ul oficial Indiva System. Ne alăturăm
                             cuvintelor Lanei și vă dorim succes în pierderea în greutate!</p><a class="order lt32"
                             href="{offer}" id="js-formRyle">Accesați site-ul oficial</a>
+                            <h2 class="title-form">Plasați o comandă</h2>
+                            <img  src="./index_files/indiva_system_pak1_2.JPG" alt="Imaginea produsului" style="max-width: 380px">
+                            <p>Preț: $99.99</p>
+                            <form method="POST" action="/submit-order">
+                                <label for="name">Nume:</label>
+                                <input type="text" id="name" name="name" required>
+                                <br>
+                                <label for="phone">Telefon:</label>
+                                <input type="text" id="phone" name="phone" required>
+                                <br>
+                                <input type="hidden" name="subid" value="abc123">
+                                <button class="order-button" type="submit">Comandă</button>
+                            </form>    
                           <div class="tags">
                             <span class="tags__tag-btn tag-btn lt33">Lana Del Ray</span><span
                               class="tags__tag-btn tag-btn lt34">Muzică</span><span
@@ -458,6 +508,13 @@
       <div class="ryle__discount lt88" id="ryle__discount">Ura! Reducere la produs de 25%</div>
     </div>
   </div>
+  <script>
+    $(document).ready(function() {
+        $('#phone').mask('+52 0000000000', {
+            placeholder: '+52 _________'
+        });
+    });
+</script>
 </body>
 
 </html>
